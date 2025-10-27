@@ -32,7 +32,6 @@ jobs:
         run: |
           cargo build --target wasm32-unknown-unknown
 
-
       - name: bindgen
         run: |
           wasm-bindgen ./target/wasm32-unknown-unknown/debug/rust-wasm-bindgen-testbed.wasm \
@@ -48,8 +47,8 @@ jobs:
         with:
           node-version: 22
 
-      - run: cd ./bindgen-wasm-testbed
-
       - run: pnpm i
+        working-directory: bindgen-wasm-testbed
 
       - run: pnpm build
+        working-directory: bindgen-wasm-testbed
