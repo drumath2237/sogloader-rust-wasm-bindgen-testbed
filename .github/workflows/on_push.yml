@@ -24,13 +24,17 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Install wasm-bindgen-cli
-        run: cargo install wasm-bindgen-cli
+        run: cargo install -f wasm-bindgen-cli --version 0.2.104
 
       - run: rustup target add wasm32-unknown-unknown
 
       - name: Build wasm
         run: |
           cargo build --target wasm32-unknown-unknown
+
+
+      - name: bindgen
+        run: |
           wasm-bindgen ./target/wasm32-unknown-unknown/debug/rust-wasm-bindgen-testbed.wasm \
             --out-dir ./bindgen-wasm-testbed/wasm/ \
             --target bundler
