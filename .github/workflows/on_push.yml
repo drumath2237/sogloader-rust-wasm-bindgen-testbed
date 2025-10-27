@@ -48,6 +48,8 @@ jobs:
         with:
           node-version: 22
 
+      - run: cd ./bindgen-wasm-testbed
+
       - run: pnpm i
 
       - run: pnpm build
