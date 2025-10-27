@@ -1,4 +1,4 @@
 
 mod add;
 
-pub use add::add;
+pub use add::{add, sum_array};
